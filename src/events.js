@@ -20,12 +20,14 @@
     function handleTouch(e) {}
 
     function handleTimeClick(e) {
+        console.log(e);
 
         e.preventDefault();
-        e.stopPropogation();
+        e.stopPropagation();
     }
     function handleTimeTouch(e) {
+        console.log(e);
         
-        e.stopPropogation();
+        e.stopPropagation();
     }
 })();

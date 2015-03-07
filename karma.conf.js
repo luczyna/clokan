@@ -18,6 +18,7 @@ module.exports = function(config) {
       // {pattern: 'index.html', watched: false},
       // 'index.html',
       'src/elements.js',
+      'src/clock.js',
       'test/*.spec.js'
     ],
 

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    window.elm: {
+    window.elm = {
         width: window.innerWidth,
         height: window.innerHeight,
 
@@ -17,10 +17,10 @@
 
         dom: {
             canvas: document.getElementsByTagName('canvas')[0],
-            time: document.getElementByClassName('time')[0],
-            hour: document.getElementsById('hour'),
-            minute: document.getElementsById('minute'),
-            xm: document.getElementsById('xm'),
+            time: document.getElementsByClassName('time')[0],
+            hour: document.getElementById('hour'),
+            minute: document.getElementById('minute'),
+            xm: document.getElementById('xm'),
         }
     };
 })();

@@ -11,8 +11,17 @@
         <!-- build:css:prod src/clokan.min.css -->
         <link rel="stylesheet" type="text/css" href="src/clokan.css"> 
         <!-- /build -->
+        <link href='http://fonts.googleapis.com/css?family=Dosis:200' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <div class="time">
+            <span class="hour" id="hour"></span>
+            <span class="colon" id="colon">:</span>
+            <span class="minute" id="minute"></span>
+            <span class="xm" id="xm"></span>
+        </div>
+
+        <canvas id="canvas"></canvas>
 
         <!-- build:js:prod src/clokan.min.js -->
         <script type="text/javascript" src="src/elements.js"></script>

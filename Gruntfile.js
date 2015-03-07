@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['<%= jshint.files %>'],
+            files: ['<%= jshint.files %>', 'src/index.html'],
             tasks: ['jshint', 'processhtml:dev']
         },
         bump: {
@@ -54,18 +54,25 @@ module.exports = function(grunt) {
             }
         },
         processhtml: {
-            options: {},
+            options: {
+                process: true,
+                strip: true
+            },
             dev: {
-                'index.html': 'src/index.html'
+                files: {
+                    'index.html': ['src/index.html']
+                }
             },
             prod: {
-                'index.html': 'src/index.html'
+                files: {
+                    'index.html': ['src/index.html']
+                }
             }
         }
     });
 
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'processhtml:dev']);
     grunt.registerTask('prepare', ['jshint', 'cssmin:prod', 'uglify:prod', 'processhtml:prod']);
 
 };

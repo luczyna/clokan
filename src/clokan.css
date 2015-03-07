@@ -1,1 +1,39 @@
 /* C L O K A N    I S    T H E R E    F O R    Y O U */
+html, body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-weight: 300;
+    font-size: 150%;
+    font-family: 'Dosis', sans-serif;
+}
+
+canvas {
+    background: hsl(240, 90%, 10%);
+    -o-transition: background 2s ease-in;
+    -ms-transition: background 2s ease-in;
+    -moz-transition: background 2s ease-in;
+    -webkit-transition: background 2s ease-in;
+    transition: background 2s ease-in;
+}
+
+.time {
+    color: white;
+    width: 90%;
+    padding: 2.5%;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    -o-transition: background 2s ease-in;
+    -ms-transition: background 2s ease-in;
+    -moz-transition: background 2s ease-in;
+    -webkit-transition: background 2s ease-in;
+    transition: background 2s ease-in;
+}
+.time.active {
+    border: 1px white solid;
+}
+.time .hour {}
+.time .colon {}
+.time .minute {}
+.time .xm {}

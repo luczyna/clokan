@@ -5,7 +5,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks('grunt-beep');
 
     grunt.initConfig({
         jshint: {
@@ -15,10 +17,6 @@ module.exports = function(grunt) {
                     jQuery: false
                 }
             }
-        },
-        watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'processhtml:dev']
         },
         bump: {
             files: ['package.json'],
@@ -54,18 +52,38 @@ module.exports = function(grunt) {
             }
         },
         processhtml: {
-            options: {},
+            options: {
+                process: true,
+                strip: true
+            },
             dev: {
-                'index.html': 'src/index.html'
+                files: {
+                    'index.html': ['src/index.html']
+                }
             },
             prod: {
-                'index.html': 'src/index.html'
+                files: {
+                    'index.html': ['src/index.html']
+                }
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                autoWatch: true,
+                singleRun: false,
+                background: true
+            }
+        },
+        watch: {
+            files: ['<%= jshint.files %>', 'src/index.html'],
+            tasks: ['jshint', 'beep:error:1', 'processhtml:dev', 'karma:unit', 'beep:error:3', 'beep:ok']
         }
     });
+    //end initConfig
 
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['jshint', 'processhtml:dev', 'karma:unit']);
     grunt.registerTask('prepare', ['jshint', 'cssmin:prod', 'uglify:prod', 'processhtml:prod']);
 
 };

@@ -37,6 +37,38 @@ canvas {
     border: 1px white solid;
 }
 .time .hour {}
-.time .colon {}
+.time .colon {
+    opacity: 1;
+    margin: 0 -1.75%;
+    -o-animation: blink 1s ease-out 0s infinite alternate;
+    -moz-animation: blink 1s ease-out 0s infinite alternate;
+    -webkit-animation: blink 1s ease-out 0s infinite alternate;
+    animation: blink 1s ease-out 0s infinite alternate;
+    -o-transtion: opacity 1s ease-out;
+    -ms-transtion: opacity 1s ease-out;
+    -moz-transtion: opacity 1s ease-out;
+    -webkit-transtion: opacity 1s ease-out;
+    transtion: opacity 1s ease-out;
+}
 .time .minute {}
-.time .xm {}
+.time .xm {
+    text-transform: uppercase;
+    margin: 0 0 0 -1.75%;
+}
+
+@-o-keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-moz-keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@-webkit-keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}

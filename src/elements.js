@@ -9,6 +9,10 @@
         saturation: null,
         lightness: null,
 
+        other_hue: null,
+        other_saturation: null,
+        other_lightness: null,
+
         storage: {
             start: new Date(),
             time: null,

@@ -11,35 +11,34 @@ canvas {
     margin: 0 auto;
     padding: 0;
     display: block;
-    background: hsl(240, 90%, 10%);
-    -o-transition: background 2s ease-in;
-    -ms-transition: background 2s ease-in;
-    -moz-transition: background 2s ease-in;
-    -webkit-transition: background 2s ease-in;
-    transition: background 2s ease-in;
+    -o-transition: background-color 2s ease-in;
+    -ms-transition: background-color 2s ease-in;
+    -moz-transition: background-color 2s ease-in;
+    -webkit-transition: background-color 2s ease-in;
+    transition: background-color 2s ease-in;
 }
 
 .time {
-    color: white;
-    width: 95%;
-    padding: 0 2.5%;
+    /*color: white;*/
+    padding: 2.5%;
+    line-height: 1;
     margin: 0 auto;
     text-align: center;
     position: absolute;
     font-size: 300%;
-    -o-transition: background 2s ease-in;
-    -ms-transition: background 2s ease-in;
-    -moz-transition: background 2s ease-in;
-    -webkit-transition: background 2s ease-in;
-    transition: background 2s ease-in;
+    -o-transition: color 2s ease-in, left 0.5s ease-out, top 0.5s ease-out;
+    -ms-transition: color 2s ease-in, left 0.5s ease-out, top 0.5s ease-out;
+    -moz-transition: color 2s ease-in, left 0.5s ease-out, top 0.5s ease-out;
+    -webkit-transition: color 2s ease-in, left 0.5s ease-out, top 0.5s ease-out;
+    transition: color 2s ease-in, left 0.5s ease-out, top 0.5s ease-out;
 }
 .time.active {
-    border: 1px white solid;
+    outline: 1px white solid;
 }
 .time .hour {}
 .time .colon {
     opacity: 1;
-    margin: 0 -1.75%;
+    margin: 0 -7px;
     -o-animation: blink 1s ease-out 0s infinite alternate;
     -moz-animation: blink 1s ease-out 0s infinite alternate;
     -webkit-animation: blink 1s ease-out 0s infinite alternate;
@@ -53,7 +52,7 @@ canvas {
 .time .minute {}
 .time .xm {
     text-transform: uppercase;
-    margin: 0 0 0 -1.75%;
+    margin: 0 0 0 -7px;
 }
 
 @-o-keyframes blink {

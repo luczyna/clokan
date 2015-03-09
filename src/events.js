@@ -28,6 +28,10 @@
             color.set(what, x);
         }
 
+        elm.storage.pointer = [x, y];
+        animationReset();
+        pointerAnimation = window.setInterval(feedback, 10);
+
     }
     function handleTouch(event) {
         console.log('tapped on the canvas!');
@@ -43,6 +47,10 @@
         } else {
             color.set(what, x);
         }
+        
+        elm.storage.pointer = [x, y];
+        animationReset();
+        pointerAnimation = window.setInterval(feedback, 10);
     }
 
     function handleTimeClick(e) {
@@ -82,4 +90,41 @@
         timeIsActive = true;
         elm.dom.time.classList.add('active');
     }
+
+
+    var haptic = 5, pointerAnimation, tick = 10, turnaround = tick / 2, increase = true; 
+    function feedback() {
+        var x = elm.storage.pointer[0];
+        var y = elm.storage.pointer[1];
+        if (tick === turnaround) {
+            increase = false;
+        }
+        
+        canvas.clearRect(0, 0, elm.width, elm.height);
+    
+        // arc(x, y, radius, startAngle, endAngle, anticlockwise)
+        canvas.beginPath();
+        canvas.fillStyle = color.currentOther();
+        canvas.arc(x, y, haptic, 0, Math.PI * 2, false);
+        canvas.fill();
+        canvas.closePath();
+
+        if (increase) {
+            haptic++;
+        } else {
+            haptic--;
+        }
+        tick--;
+
+        if (tick === 0) {
+            animationReset();
+        }
+    }
+    function animationReset() {
+        canvas.clearRect(0, 0, elm.width, elm.height);
+        haptic = 5, 
+        tick = 20, turnaround = tick / 2,
+        increase = true;
+        window.clearInterval(pointerAnimation);
+turnaround}
 })();

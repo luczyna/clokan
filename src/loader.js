@@ -2,7 +2,14 @@
     'use strict';
     document.addEventListener('DOMContentLoaded', _init, false);
 
-    window.sizeCanvas = function() {
+    window.addEventListener('resize', sizeCanvas, false);
+
+    
+
+    //////
+
+
+    function sizeCanvas() {
         // console.log('resized!');
         elm.height = window.innerHeight;
         // elm.width = window.innerWidth;
@@ -14,13 +21,6 @@
         elm.dom.time.style.top = elm.height / 2 + 'px';
         elm.dom.time.style.left = elm.width / 2 - elm.dom.time.offsetWidth / 2 + 'px';
     };
-    window.addEventListener('resize', sizeCanvas, false);
-
-    
-
-    //////
-
-
 
     function _init() {
         // console.log('ready!');
@@ -38,9 +38,9 @@
         // set up the time
         setTime(elm.storage.start);
 
-        var tilThen = 60 - elm.storage.start.getSeconds();
+        var tilThen = 6000 - (elm.storage.start.getSeconds() * 1000 + elm.storage.start.getMilliseconds());
         
-        var wait = window.setTimeout(startUpdate, tilThen * 1000);
+        var wait = window.setTimeout(startUpdate, tilThen);
 
         // set up our color
         // color.init();

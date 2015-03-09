@@ -15,13 +15,13 @@
 
 
     function handleClick(event) {
-        console.log('clicked on the canvas!');
+        // console.log('clicked on the canvas!');
         var x = event.clientX;
         var y = event.clientY;
 
         var what = setColor(y);
         if (timeIsActive) {
-            console.log('canvas changed time color');
+            // console.log('canvas changed time color');
             color.setOther(what, x);
             deactivateTime();
         } else {
@@ -34,14 +34,14 @@
 
     }
     function handleTouch(event) {
-        console.log('tapped on the canvas!');
+        // console.log('tapped on the canvas!');
         var x = event.touches[0].clientX;
         var y = event.touches[0].clientY;
         event.preventDefault();
 
         var what = setColor(y);
         if (timeIsActive) {
-            console.log('canvas changed time color');
+            // console.log('canvas changed time color');
             color.setOther(what, x);
             deactivateTime();
         } else {
@@ -54,13 +54,13 @@
     }
 
     function handleTimeClick(e) {
-        console.log('clicked on the time!');
+        // console.log('clicked on the time!');
         activateTime();
 
         e.stopPropagation();
     }
     function handleTimeTouch(e) {
-        console.log('tapped on the time!');
+        // console.log('tapped on the time!');
         // var x = e.touches[0].clientX;
         // var y = e.touches[0].clientY;
         activateTime();
@@ -92,7 +92,13 @@
     }
 
 
-    var haptic = 5, pointerAnimation, tick = 10, turnaround = tick / 2, increase = true; 
+    var haptic = 5,
+        pointerAnimation,
+        tick = 10,
+        turnaround = (tick / 2),
+        /*jshint expr:true */
+        increase = true; 
+
     function feedback() {
         var x = elm.storage.pointer[0];
         var y = elm.storage.pointer[1];
@@ -126,5 +132,5 @@
         tick = 20, turnaround = tick / 2,
         increase = true;
         window.clearInterval(pointerAnimation);
-turnaround}
+    }
 })();

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', '!src/clokan.min.js'],
             options: {
                 globals: {
                     jQuery: false
@@ -22,21 +22,22 @@ module.exports = function(grunt) {
             files: ['package.json'],
             commit: false,
             createTag: false,
+            tag: false,
             push: false,
         },
         cssmin: {
             prod: {
-                files: [{
-                    expand: true,
-                    src: ['*.css', '!*.min.css'],
-                    dest: 'clokan',
-                    ext: '.min.css'
-                }]
+                files: {
+                    'src/clokan.min.css': 'src/clokan.css'
+                }
             }
         },
         uglify: {
             options: {
-                mangle: true
+                mangle: true,
+                compress: true,
+                wrap: 'clokan',
+                preserveComments: false
             },
             prod: {
                 files: {

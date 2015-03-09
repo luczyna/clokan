@@ -5,7 +5,8 @@
     window.sizeCanvas = function() {
         // console.log('resized!');
         elm.height = window.innerHeight;
-        elm.width = window.innerWidth;
+        // elm.width = window.innerWidth;
+        elm.width = document.documentElement.clientWidth;
 
         elm.dom.canvas.height = elm.height;
         elm.dom.canvas.width = elm.width;
@@ -29,7 +30,7 @@
         // first set up the size of the canvas
         sizeCanvas();
         // run it twice to give the resizing a chance
-        setTimeout(sizeCanvas, 100);
+        setTimeout(sizeCanvas, 400);
 
         // create a global context variable
         window.canvas = elm.dom.canvas.getContext('2d');

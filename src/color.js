@@ -20,7 +20,7 @@
 
     function getColor() {
         //what is the background color
-        return elm.dom.canvas.style.background;
+        return elm.dom.canvas.style.backgroundColor;
     }
 
     function getOtherColor() {
@@ -91,7 +91,7 @@
         var values;
         if (type === 'string') {
             // does it contain rgb?
-            if (rgb.indexOf('rgb(') === 0) {
+            if (rgb.indexOf('rgb(') !== -1) {
                 var cut = rgb.replace('rgb(', '');
                 cut = cut.replace(')', '');
                 values = cut.split(', ');

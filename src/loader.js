@@ -20,7 +20,7 @@
 
         elm.dom.time.style.top = elm.height / 2 + 'px';
         elm.dom.time.style.left = elm.width / 2 - elm.dom.time.offsetWidth / 2 + 'px';
-    };
+    }
 
     function _init() {
         // console.log('ready!');
@@ -38,7 +38,11 @@
         // set up the time
         setTime(elm.storage.start);
 
-        var tilThen = 6000 - (elm.storage.start.getSeconds() * 1000 + elm.storage.start.getMilliseconds());
+        var tilThen = 60 - (elm.storage.start.getSeconds() + (elm.storage.start.getMilliseconds() / 1000));
+        tilThen *= 1000;
+        console.log(elm.storage.start.getSeconds());
+        console.log(elm.storage.start.getMilliseconds() / 1000);
+        console.log('we need to wait %d milliseconds', tilThen);
         
         var wait = window.setTimeout(startUpdate, tilThen);
 
